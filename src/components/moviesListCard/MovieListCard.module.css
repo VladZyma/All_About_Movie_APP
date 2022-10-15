@@ -1,0 +1,5 @@
+.MovieListCard {
+    box-sizing: border-box;
+    margin: 10px;
+    border: 1px dot-dot-dash darkmagenta;
+}
