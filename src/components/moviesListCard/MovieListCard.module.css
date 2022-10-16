@@ -1,5 +1,29 @@
 .MovieListCard {
-    box-sizing: border-box;
-    margin: 10px;
-    border: 1px dot-dot-dash darkmagenta;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+
+.CardDetails {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    cursor: pointer;
+}
+
+.CardPoster {
+    width: 100%;
+}
+
+.CardPoster > img {
+    width: 100%;
+    height: auto;
+}
+
+/*.MovieListCard > img {*/
+/*    margin: 15px;*/
+/*    width: 100%;*/
+/*    max-width: 300px;*/
+/*    height: auto;*/
+/*}*/

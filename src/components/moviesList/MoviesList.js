@@ -41,9 +41,13 @@ const MoviesList = () => {
 
     return (
         <div className={css.MoviesList}>
-            <MoviesListCard posters={postersObj}/>
-            <button disabled={page === 1} onClick={pageDecrement}>prev</button>
-            <button onClick={pageIncrement}>nex</button>
+            <div className={css.CardRow}>
+                <MoviesListCard posters={postersObj}/>
+            </div>
+            <div className={css.BtnRow}>
+                <button disabled={page === 1} onClick={pageDecrement}>prev</button>
+                <button onClick={pageIncrement}>nex</button>
+            </div>
         </div>
     );
 

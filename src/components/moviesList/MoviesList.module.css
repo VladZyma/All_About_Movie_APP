@@ -1,4 +1,12 @@
 .MoviesList {
-    box-sizing: border-box;
-    border: 1px dashed salmon;
+    display: flex;
+    flex-direction: column;
+}
+
+.CardRow {
+
+}
+
+.BtnRow {
+    display: flex;
 }

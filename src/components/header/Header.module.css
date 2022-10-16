@@ -2,6 +2,88 @@
     padding: 15px;
     box-sizing: border-box;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     background: blue;
+}
+
+.HeaderRowTop {
+    display: flex;
+    align-items: center;
+    gap: 200px;
+}
+
+.HeaderRowBottom {
+    display: flex;
+    align-items: center;
+}
+
+.HeaderLogoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.HeaderLogo {
+    width: 100%;
+    max-width: 50px;
+    height: auto;
+}
+
+.HeaderLogo > img {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+.HeaderFormWrapper {
+
+}
+
+.HeaderFormInput {
+    width: 400px;
+    height: auto;
+
+    outline: none;
+    border: 1px solid salmon;
+    border-radius: 3px;
+    background: url("../../img/search/search_movie_icon.svg") right  no-repeat;
+
+    font-size: 16px;
+    font-family: inherit;
+    color: salmon;
+}
+
+.HeaderFormInput:focus {
+    border: 1px solid fuchsia;
+    color: slateblue;
+}
+
+.HeaderAvatarWrapper {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.HeaderAvatar {
+    width: 100%;
+    max-width: 30px;
+    height: auto;
+}
+
+.HeaderAvatar > img {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.HeaderNav {
+    margin: 0 auto;
+}
+
+.HeaderNavList {
+    display: flex;
+    gap: 15px;
 }
