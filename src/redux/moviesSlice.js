@@ -8,7 +8,9 @@ import {moviesService} from "../services";
 
 const initialState = {
     movies: [],
+    foundMovies: [],
     page: null,
+    searchQuery: null,
     loading: false,
     error: null,
 }
@@ -21,16 +23,34 @@ const getMovies = createAsyncThunk(
             const {data} = await moviesService.getAllMovies(page);
             return data;
         } catch (e) {
-            rejectWithValue(e.response.data.status_message);
+            rejectWithValue(e.response.data?.status_message);
         }
 
+    }
+);
+
+const findMovies = createAsyncThunk(
+    'moviesSlice/findMovies',
+    async ({query}, {rejectWithValue}) => {
+        try {
+            const {data:{results}} = await moviesService.findMovies(query);
+            return results;
+        } catch (e) {
+            rejectWithValue(e.response.data?.errors);
+            console.log(e);
+        }
     }
 );
 
 const moviesSlice = createSlice({
     name: 'moviesSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        SetSearchQuery: (state, action) => {
+            console.log(action.payload);
+            state.searchQuery = action.payload;
+        }
+    },
     extraReducers: builder =>
         builder
             .addCase(getMovies.fulfilled, (state, action) => {
@@ -45,10 +65,14 @@ const moviesSlice = createSlice({
                 state.error = action.payload;
                 state.loading = false;
             })
+
+            .addCase(findMovies.fulfilled, (state, action) => {
+                state.foundMovies = action.payload;
+            })
 });
 
-const {reducer: moviesReducer, actions: {}} = moviesSlice;
-const moviesActions = {getMovies}
+const {reducer: moviesReducer, actions: {SetSearchQuery}} = moviesSlice;
+const moviesActions = {getMovies, findMovies, SetSearchQuery}
 
 export {
     moviesReducer,

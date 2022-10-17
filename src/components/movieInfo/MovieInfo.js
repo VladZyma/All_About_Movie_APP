@@ -1,10 +1,14 @@
 import {useLocation} from "react-router-dom";
+import {Badge} from "@mui/material";
 
+import css from './MovieInfo.module.css';
 
+import {GenreBadge} from "../genreBadge/GenreBage";
 
 import {urls} from "../../configs";
 
-const MovieInfo = () => {
+const MovieInfo = (props) => {
+
     const {state, state: {
         backdrop_path,
         genre_ids,
@@ -15,8 +19,9 @@ const MovieInfo = () => {
         release_date,
         title,
     }} = useLocation();
-    console.log(genre_ids);
 
+    const {genre} = props;
+    console.log('Props',genre[12].name);
 
     return (
         <div>
@@ -34,8 +39,8 @@ const MovieInfo = () => {
                     <li>
                         original_language: {original_language}
                     </li>
-                    <li>
-                        genre_ids:
+                    <li className={css.Badges}>
+                        genre_ids: <div className={css.BadgesRow}>{genre_ids.map(id => <GenreBadge genre={genre[id].name}/>)}</div>
                     </li>
                     <li>
                         release_date: {release_date}

@@ -4,7 +4,7 @@ import {useSearchParams} from "react-router-dom";
 
 import css from './MoviesList.module.css';
 
-import {moviesActions} from "../../redux";
+import {genreActions, moviesActions} from "../../redux";
 import {MoviesListCard} from "../moviesListCard/MoviesListCard";
 
 
@@ -15,20 +15,24 @@ const MoviesList = () => {
     const [query, setQuery] = useSearchParams({page: '1'});
 
     const {movies, page} = useSelector(state => state.moviesReducer);
-    console.log(movies);
 
 
-    let postersArr = movies.map(movie => movie.poster_path);
+    // let postersArr = movies.map(movie => movie.poster_path);
+
     let postersObj = movies.reduce((accum, movie) => {
         accum[movie.id] = movie;
         return accum;
     }, {});
-    console.log(postersObj);
+
 
 
     useEffect(() => {
         dispatch(moviesActions.getMovies({page: query.get('page')}));
     }, [query, dispatch]);
+
+    useEffect(() => {
+        dispatch(genreActions.getGenres());
+    }, [dispatch]);
 
 
     function pageIncrement() {

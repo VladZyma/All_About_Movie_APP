@@ -1,0 +1,9 @@
+.BadgesRow {
+    display: flex;
+    gap: 20px;
+}
+.Badges {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
