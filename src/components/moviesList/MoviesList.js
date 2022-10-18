@@ -49,8 +49,8 @@ const MoviesList = () => {
                 <MoviesListCard posters={postersObj}/>
             </div>
             <div className={css.BtnRow}>
-                <button disabled={page === 1} onClick={pageDecrement}>prev</button>
-                <button onClick={pageIncrement}>nex</button>
+                <button className={css.PrevBtn} disabled={page === 1} onClick={pageDecrement}></button>
+                <button className={css.NextBtn} onClick={pageIncrement}></button>
             </div>
         </div>
     );

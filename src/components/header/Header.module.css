@@ -1,9 +1,13 @@
 .Header {
-    padding: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background: blue;
+    background: url("../../img/header_bg700X250.jpg");
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .HeaderRowTop {
@@ -23,7 +27,9 @@
     gap: 30px;
     cursor: pointer;
 }
-
+.HeaderLogoWrapper > h1 {
+    color: fuchsia;
+}
 .HeaderLogo {
     width: 100%;
     max-width: 50px;
@@ -45,7 +51,7 @@
     height: auto;
 
     outline: none;
-    border: 1px solid salmon;
+    border: 2px solid fuchsia;
     border-radius: 3px;
     background: url("../../img/search/search_movie_icon.svg") right  no-repeat;
 
@@ -55,17 +61,25 @@
 }
 
 .HeaderFormInput:focus {
-    border: 1px solid fuchsia;
-    color: slateblue;
+    border: 2px solid greenyellow;
+    background: rgba(173, 255, 47, 0.5);
+    color: #a41fa4;
 }
 
 .HeaderAvatarWrapper {
+    padding: 5px 10px;
     margin-left: auto;
     display: flex;
     align-items: center;
     gap: 7px;
+    border: 2px solid fuchsia;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: rgba(255, 0, 255, 0.5);
 }
-
+.HeaderAvatarWrapper > p {
+    color: greenyellow;
+}
 .HeaderAvatar {
     width: 100%;
     max-width: 30px;
@@ -86,4 +100,24 @@
 .HeaderNavList {
     display: flex;
     gap: 15px;
+}
+.HeaderNavList > li > a {
+    color: fuchsia;
+}
+
+.Day {
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url('../../img/buttons/moon_icon.svg') center no-repeat;
+}
+.Night {
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url('../../img/buttons/sun_icon.svg') center no-repeat;
 }

@@ -9,6 +9,6 @@ export * from './starsReting/StarsRating';
 
 export * from './genreBadge/GenreBage';
 
-export * from './foundMoviesList/foundMoviesList';
-export * from './foundMoviesListCard/foundMoviesListCard';
+export * from './foundMoviesList/FoundMoviesList';
+export * from './foundMoviesListCard/FoundMoviesListCard';
 

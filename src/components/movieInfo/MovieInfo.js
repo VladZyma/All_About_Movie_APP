@@ -1,5 +1,5 @@
 import {useLocation} from "react-router-dom";
-import {Badge} from "@mui/material";
+// import {Badge} from "@mui/material";
 
 import css from './MovieInfo.module.css';
 
@@ -16,43 +16,61 @@ const MovieInfo = (props) => {
         original_title,
         overview,
         popularity,
+        vote_count,
+        vote_average,
         release_date,
         title,
     }} = useLocation();
 
     const {genre} = props;
-    console.log('Props',genre[12].name);
+
 
     return (
-        <div>
-            <div>
-                <img src={`${urls.posters}${backdrop_path}`}/>
+
+        <div className={css.Move_info}>
+
+            <div className={css.top_row}>
+
+                <div className={css.movie_img_wrap}>
+                    <img className={css.movie_img} src={`${urls.posters}${backdrop_path}`} alt={title}/>
+                </div>
+
+                <div className={css.movie_description_wrap}>
+                    <ul className={css.movie_description_list}>
+                        <li>
+                            Title : {title}
+                        </li>
+                        <li>
+                            Original title : {original_title}
+                        </li>
+                        <li>
+                            Original language : {original_language}
+                        </li>
+                        <li className={css.genres}>
+                            Genres : <div className={css.genresRow}>{genre_ids.map(id => <p key={id}>{genre[id].name}</p>)}</div>
+                            {/*genre_ids: <div className={css.BadgesRow}>{genre_ids.map(id => <GenreBadge key={id} genre={genre[id].name}/>)}</div>*/}
+                        </li>
+                        <li>
+                            Release date : {release_date}
+                        </li>
+                        <li>
+                            Popularity : {popularity}
+                        </li>
+                        <li>
+                            Vote count : {vote_count}
+                        </li>
+                        <li>
+                            Vote average : {vote_average}
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <div>
-                <ul>
-                    <li>
-                        title: {title}
-                    </li>
-                    <li>
-                        original_title: {original_title}
-                    </li>
-                    <li>
-                        original_language: {original_language}
-                    </li>
-                    <li className={css.Badges}>
-                        genre_ids: <div className={css.BadgesRow}>{genre_ids.map(id => <GenreBadge genre={genre[id].name}/>)}</div>
-                    </li>
-                    <li>
-                        release_date: {release_date}
-                    </li>
-                    <li>
-                        popularity: {popularity}
-                    </li>
-                    <li>
-                        overview: {overview}
-                    </li>
-                </ul>
+
+            <div className={css.bottom_row}>
+                <p>{overview}</p>
             </div>
+
         </div>
     );
 }

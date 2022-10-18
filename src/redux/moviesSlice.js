@@ -10,7 +10,7 @@ const initialState = {
     movies: [],
     foundMovies: [],
     page: null,
-    searchQuery: null,
+    searchValue: null,
     loading: false,
     error: null,
 }
@@ -31,9 +31,9 @@ const getMovies = createAsyncThunk(
 
 const findMovies = createAsyncThunk(
     'moviesSlice/findMovies',
-    async ({query}, {rejectWithValue}) => {
+    async ({value, page}, {rejectWithValue}) => {
         try {
-            const {data:{results}} = await moviesService.findMovies(query);
+            const {data:{results}} = await moviesService.findMovies(value, page);
             return results;
         } catch (e) {
             rejectWithValue(e.response.data?.errors);
@@ -46,9 +46,9 @@ const moviesSlice = createSlice({
     name: 'moviesSlice',
     initialState,
     reducers: {
-        SetSearchQuery: (state, action) => {
+        SetSearchValue: (state, action) => {
             console.log(action.payload);
-            state.searchQuery = action.payload;
+            state.searchValue = action.payload;
         }
     },
     extraReducers: builder =>
@@ -71,8 +71,8 @@ const moviesSlice = createSlice({
             })
 });
 
-const {reducer: moviesReducer, actions: {SetSearchQuery}} = moviesSlice;
-const moviesActions = {getMovies, findMovies, SetSearchQuery}
+const {reducer: moviesReducer, actions: {SetSearchValue}} = moviesSlice;
+const moviesActions = {getMovies, findMovies, SetSearchValue}
 
 export {
     moviesReducer,

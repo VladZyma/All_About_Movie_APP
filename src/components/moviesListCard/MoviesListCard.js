@@ -1,4 +1,4 @@
-import {useNavigate, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import css from './MovieListCard.module.css';
 
@@ -10,7 +10,6 @@ const MoviesListCard = (props) => {
 
     const {posters} = props;
 
-    // const navigate = useNavigate();
 
     return (
             <div className={css.MovieListCard}>
@@ -25,8 +24,8 @@ const MoviesListCard = (props) => {
                             </div>
                             <div className={css.CardReiting}>
                                 <StarsRating rating={posters[key].vote_average}/>
-                                <p>vote_average: {posters[key].vote_average}</p>
-                                <p>vote_count: {posters[key].vote_count}</p>
+                                {/*<p>vote_average: {posters[key].vote_average}</p>*/}
+                                {/*<p>vote_count: {posters[key].vote_count}</p>*/}
                             </div>
                         </Link>
                     </div>

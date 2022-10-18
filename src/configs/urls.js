@@ -6,7 +6,7 @@ const urls = {
     posters: 'https://image.tmdb.org/t/p/w500',
     genres: '/genre/movie/list',
     // search: '/search/keyword?query',
-    search: '/search/multi',
+    search: '/search/multi?query',
 }
 
 export {

@@ -8,7 +8,7 @@ const StarsRating = (props) => {
     return (
 
         <div>
-            <div>Stars Rating : {rating}</div>
+            {/*<div>Stars Rating : {rating}</div>*/}
             <StarRatings
               rating={rating}
               numberOfStars={10}

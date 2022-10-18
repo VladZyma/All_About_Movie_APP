@@ -9,4 +9,25 @@
 
 .BtnRow {
     display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.PrevBtn {
+    border: none;
+    cursor: pointer;
+    background: url("../../img/buttons/prev_arrow_btn.svg") center no-repeat;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.PrevBtn:disabled {
+    background: url("../../img/buttons/disabled_icon.svg") center no-repeat;
+}
+.NextBtn {
+    border: none;
+    cursor: pointer;
+    background: url("../../img/buttons/next_arrow_btn.svg") center no-repeat;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }

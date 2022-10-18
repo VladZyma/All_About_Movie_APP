@@ -10,7 +10,6 @@ const MainLayout = () => {
     return (
         <div className={css.MainLayout}>
             <Header/>
-            <hr/>
             <Outlet/>
         </div>
     );

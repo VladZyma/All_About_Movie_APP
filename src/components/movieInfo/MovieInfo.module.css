@@ -1,9 +1,39 @@
-.BadgesRow {
+.Move_info {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 30px;
 }
-.Badges {
+
+.top_row {
+    display: flex;
+    gap: 50px;
+}
+
+.movie_img_wrap {
+    width: 650px;
+}
+
+.movie_img {
+    width: 100%;
+    vertical-align: top;
+}
+.movie_description_list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.genres {
     display: flex;
     align-items: center;
     gap: 10px
+}
+
+.genresRow {
+    display: flex;
+    gap: 20px;
+}
+
+.bottom_row {
+
 }
