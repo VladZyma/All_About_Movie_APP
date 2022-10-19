@@ -18,7 +18,7 @@ const Header = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, reset} = useForm();
 
     const {switcher, themes, currentTheme, status} = useThemeSwitcher();
     const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -27,6 +27,7 @@ const Header = () => {
     function submit(movie) {
         dispatch(moviesActions.SetSearchValue(movie.name));
         navigate('/search');
+        reset();
     }
 
     function themeSwitcher() {
@@ -37,21 +38,6 @@ const Header = () => {
     }
 
 
-    // let isDarkTheme = false;
-    // function themeSwitcher() {
-    //    // switcher({theme: !isDarkTheme ? themes.dark : themes.light});
-    //    // isDarkTheme = true;
-    //     console.log('Start',isDarkTheme);
-    //     if (!isDarkTheme) {
-    //        switcher({theme: themes.dark});
-    //        isDarkTheme = true;
-    //    } else {
-    //        switcher({theme: themes.light});
-    //        isDarkTheme = false;
-    //    }
-    //     console.log('End',isDarkTheme);
-    // }
-
 
     return (
         <header className={css.Header}>
@@ -59,10 +45,13 @@ const Header = () => {
             <div className={css.HeaderRowTop}>
 
                 <div className={css.HeaderLogoWrapper}  onClick={() => navigate('/movies')}>
-                    <div className={css.HeaderLogo}>
-                        <img src={logo}/>
+                    <div className={css.LogoTopRow}>
+                        <div>A</div>
+                        <div>A</div>
                     </div>
-                    <h1>All About Movie</h1>
+                    <div className={css.LogoBottomRow}>
+                        <div>M</div>
+                    </div>
                 </div>
 
 

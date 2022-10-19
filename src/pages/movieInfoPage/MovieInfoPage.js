@@ -1,4 +1,3 @@
-
 import {useSelector} from 'react-redux';
 
 import {MovieInfo} from "../../components";

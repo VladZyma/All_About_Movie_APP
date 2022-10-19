@@ -47,7 +47,6 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {
         SetSearchValue: (state, action) => {
-            console.log(action.payload);
             state.searchValue = action.payload;
         }
     },

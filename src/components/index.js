@@ -9,6 +9,7 @@ export * from './starsReting/StarsRating';
 
 export * from './genreBadge/GenreBage';
 
+
 export * from './foundMoviesList/FoundMoviesList';
 export * from './foundMoviesListCard/FoundMoviesListCard';
 

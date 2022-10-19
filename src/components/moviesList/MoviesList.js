@@ -15,12 +15,17 @@ const MoviesList = () => {
     const [query, setQuery] = useSearchParams({page: '1'});
 
     const {movies, page} = useSelector(state => state.moviesReducer);
+    const {genres} = useSelector(state => state.genresReducer);
 
 
-    // let postersArr = movies.map(movie => movie.poster_path);
 
-    let postersObj = movies.reduce((accum, movie) => {
+    const moviesObj = movies.reduce((accum, movie) => {
         accum[movie.id] = movie;
+        return accum;
+    }, {});
+
+    const genresObj = genres.reduce((accum, genre) => {
+        accum[genre.id] = genre;
         return accum;
     }, {});
 
@@ -46,12 +51,13 @@ const MoviesList = () => {
     return (
         <div className={css.MoviesList}>
             <div className={css.CardRow}>
-                <MoviesListCard posters={postersObj}/>
+                <MoviesListCard movies={moviesObj} genres={genresObj}/>
             </div>
+            { movies.length > 0 &&
             <div className={css.BtnRow}>
                 <button className={css.PrevBtn} disabled={page === 1} onClick={pageDecrement}></button>
-                <button className={css.NextBtn} onClick={pageIncrement}></button>
-            </div>
+                <button className={css.NextBtn} disabled={page > 500} onClick={pageIncrement}></button>
+            </div> }
         </div>
     );
 

@@ -4,6 +4,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {Provider} from "react-redux";
 
 import './index.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import App from './App';
 import {store} from './redux';
 

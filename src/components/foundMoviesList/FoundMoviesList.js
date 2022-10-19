@@ -16,7 +16,6 @@ const FoundMoviesList = () => {
 
 
     useEffect(() => {
-        console.log('work', newPage)
         dispatch(moviesActions.findMovies({value:searchValue, page: newPage.toString()}));
     }, [newPage, dispatch, searchValue]);
 
@@ -25,12 +24,13 @@ const FoundMoviesList = () => {
     return (
         <div>
             <div>
-                {foundMovies.map(movie => <FoundMoviesListCard key={movie.id} movie={movie}/>)}
+                 <FoundMoviesListCard movies={foundMovies}/>
             </div>
+            { foundMovies.length > 0 &&
             <div>
                 <button disabled={newPage === 1}  onClick={() => setNewPage(newPage - 1)}>prev</button>
                 <button onClick={() => setNewPage(newPage + 1)}>next</button>
-            </div>
+            </div> }
 
         </div>
     );
