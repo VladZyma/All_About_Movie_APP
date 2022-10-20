@@ -2,15 +2,17 @@ import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 
-import {FoundMoviesListCard} from "../foundMoviesListCard/FoundMoviesListCard";
+import css from './FoundMoviesList.module.css'
+
+import {FoundMoviesListCard, Loading} from "../../components";
 import {moviesActions} from "../../redux";
 
 const FoundMoviesList = () => {
 
     const dispatch = useDispatch();
-    const {searchValue} = useSelector(state => state.moviesReducer);
 
-    const {foundMovies} = useSelector(state => state.moviesReducer);
+    const {foundMovies,searchValue, loading} = useSelector(state => state.moviesReducer);
+
 
     const [newPage, setNewPage] = useState(1);
 
@@ -22,14 +24,15 @@ const FoundMoviesList = () => {
 
 
     return (
-        <div>
-            <div>
+        <div className={css.MoviesList}>
+            {loading && <Loading/>}
+            <div className={css.CardRow}>
                  <FoundMoviesListCard movies={foundMovies}/>
             </div>
-            { foundMovies.length > 0 &&
-            <div>
-                <button disabled={newPage === 1}  onClick={() => setNewPage(newPage - 1)}>prev</button>
-                <button onClick={() => setNewPage(newPage + 1)}>next</button>
+            { foundMovies?.length > 0 &&
+            <div className={css.BtnRow}>
+                <button className={css.PrevBtn} disabled={newPage === 1}  onClick={() => setNewPage(newPage - 1)}></button>
+                <button className={css.NextBtn} disabled={newPage > 500} onClick={() => setNewPage(newPage + 1)}></button>
             </div> }
 
         </div>

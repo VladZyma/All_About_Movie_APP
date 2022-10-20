@@ -1,9 +1,7 @@
 import {useLocation} from "react-router-dom";
-// import {Badge} from "@mui/material";
+
 
 import css from './MovieInfo.module.css';
-
-import {GenreBadge} from "../genreBadge/GenreBage";
 
 import {urls} from "../../configs";
 
@@ -48,7 +46,6 @@ const MovieInfo = (props) => {
                         </li>
                         <li className={css.genres}>
                             Genres : <div className={css.genresRow}>{genre_ids.map(id => <p key={id}>{genre[id].name}</p>)}</div>
-                            {/*genre_ids: <div className={css.BadgesRow}>{genre_ids.map(id => <GenreBadge key={id} genre={genre[id].name}/>)}</div>*/}
                         </li>
                         <li>
                             Release date : {release_date}

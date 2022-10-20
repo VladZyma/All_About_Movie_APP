@@ -37,7 +37,6 @@ const findMovies = createAsyncThunk(
             return results;
         } catch (e) {
             rejectWithValue(e.response.data?.errors);
-            console.log(e);
         }
     }
 );
@@ -65,8 +64,17 @@ const moviesSlice = createSlice({
                 state.loading = false;
             })
 
+
             .addCase(findMovies.fulfilled, (state, action) => {
                 state.foundMovies = action.payload;
+                state.loading = false;
+            })
+            .addCase(findMovies.pending, (state, action) => {
+                state.loading = true;
+            })
+            .addCase(findMovies.rejected, (state, action) => {
+                state.error = action.payload;
+                state.loading = false;
             })
 });
 

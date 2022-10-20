@@ -5,7 +5,9 @@ import {useSearchParams} from "react-router-dom";
 import css from './MoviesList.module.css';
 
 import {genreActions, moviesActions} from "../../redux";
-import {MoviesListCard} from "../moviesListCard/MoviesListCard";
+// import {MoviesListCard} from "../moviesListCard/MoviesListCard";
+// import {Loading} from "../loading/Loading";
+import {MoviesListCard, Loading} from '../../components'
 
 
 const MoviesList = () => {
@@ -14,7 +16,7 @@ const MoviesList = () => {
 
     const [query, setQuery] = useSearchParams({page: '1'});
 
-    const {movies, page} = useSelector(state => state.moviesReducer);
+    const {movies, page, loading} = useSelector(state => state.moviesReducer);
     const {genres} = useSelector(state => state.genresReducer);
 
 
@@ -50,6 +52,7 @@ const MoviesList = () => {
 
     return (
         <div className={css.MoviesList}>
+            {loading && <Loading/>}
             <div className={css.CardRow}>
                 <MoviesListCard movies={moviesObj} genres={genresObj}/>
             </div>

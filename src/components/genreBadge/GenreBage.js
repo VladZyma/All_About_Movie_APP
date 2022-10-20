@@ -11,8 +11,6 @@ const badgeStyle = {
 const GenreBadge = (props) => {
 
     const {movie: {genre_ids}, genres} = props;
-    console.log(genre_ids);
-    console.log(genres);
 
 
     return (
