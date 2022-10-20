@@ -13,7 +13,6 @@ const FoundMoviesList = () => {
 
     const {foundMovies,searchValue, loading} = useSelector(state => state.moviesReducer);
 
-
     const [newPage, setNewPage] = useState(1);
 
 

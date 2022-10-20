@@ -13,8 +13,14 @@ const FoundMoviesListCard = (props) => {
 
     const {movies} = props;
     const {genres} = useSelector(state => state.genresReducer);
+    const genresObj = genres.reduce((accum, genre) => {
+        accum[genre.id] = genre;
+        return accum;
+    }, {});
+    console.log('Movies',movies);
+    console.log('Genres',genres);
 
-    
+
     return (
         <div className={css.MovieCard}>
             {movies?.map(movie =>
@@ -24,7 +30,7 @@ const FoundMoviesListCard = (props) => {
                         <img src={`${urls.posters}${movie.poster_path}`}/>
                     </div>
 
-                    <GenreBadge movie={movie} genres={genres}/>
+                    <GenreBadge movie={movie} genres={genresObj}/>
 
 
                     <div className={css.CardReiting}>
